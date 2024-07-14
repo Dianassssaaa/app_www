@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<div class="calculator">
+    <h1>Simple Calculator</h1>
+    <form action="#" th:action="@{/calculate}" method="post">
+        <label for="num1">Number 1:</label>
+        <input type="text" id="num1" name="num1" required>
+
+        <label for="num2">Number 2:</label>
+        <input type="text" id="num2" name="num2" required>
+
+        <label for="operation">Operation:</label>
+        <select id="operation" name="operation">
+            <option value="add">Add</option>
+            <option value="subtract">Subtract</option>
+            <option value="multiply">Multiply</option>
+            <option value="divide">Divide</option>
+        </select>
+
+        <input type="submit" value="Calculate">
+    </form>
+    <h2>Result: <span th:text="${result}">0</span></h2>
+    <div th:if="${error}">
+        <p class="error" th:text="${error}"></p>
+    </div>
+</div>
+</body>
+</html>
